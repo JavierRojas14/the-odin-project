@@ -102,3 +102,41 @@ proporcionalmente según el valor flex-shrink.
   Entonces el elemento 1 se achicara en una proporcion 75/100, y el elemento 2 se achicara en una proporcion 25/100. Por lo tanto, el elemento se achicará 75/100 * 150px = 112.5px (de largo si flex direction es row) y el elemento 2 se achicará 25/100 * 150px = 37.5px.
 
 Ahora, si no queremos que un objeto se haga más grande/pequeño, entonces setteamos estos valores en 0. Haciendo esto, la proporción de growing/shrinking será de 0, por lo que los elementos tendrán el width/height del flex-basis.
+
+# minimum size
+
+Además del hipotetical size de un objeto (dado por flex-basis, el tamaño del contenedor y del flex-grow o flex-shrink), hay otra propiedad muy importante que se toma en cuenta en el modo flexbox y esa es el minimum size. Minimum size es la propiedad que indica cual es el tamaño mínimo que puede tener un objeto, y es un hard constraint. O sea, un objeto no se achicará más allá de su minimum size en casos donde flex-shrink esté actuando. En los casos anteriores el contenido va a hacer overflow, ya que su tamaño será más grande que el contenedor.
+
+Cada elemento tiene su minimum size por default. El min-width de elementos que contienen texto es el largo de la palabra más larga.
+
+También existe min-height, pero es menos utilizado.
+
+
+# Gap
+
+Es una propiedad que nos permite generar espacio entre elementos a lo largo del primary axis.
+
+# Auto margins
+
+Los margenes en flexbox actuan de una forma particular. Recordemos que cuando utilizamos flex-grow, el espacio restante de un contenedor es utilizado con el elemento estirado. Ahora, si utilizamos margin: auto;, entonces el espacio restante será utilizado por el margin.
+
+Auto margin es muy util!
+
+# Wrapping
+
+Esta es una propiedad que permite que los elementos que NO caben dentro de una linea/columna (dependiendo del flex-direction) generen una nueva linea/columna. Por lo tanto, los elementos que no quepan dentro de una linea del flexbox serán llevados a una nueva linea. Solamente si ya no se puede generar una nueva linea, entonces se utilizará el flex-shrink.
+
+Ahora, la nueva linea que se genera es un nuevo mini flexbox dentro de si mismo. Por lo tanto, habrian 2 main axis, y cada uno de los elementos de la linea actuaría de forma independiente.
+
+En este punto donde existen 2 main axis 
+
+---- X ------ X ---->
+---- X ------ X ----> 2 filas, 2 main axis (ya que hubo wrapping)
+
+     |        |
+---- X ------ X ---->
+---- X ------ X ---->
+     |        |     
+     |        |
+
+     Ahora, las cross axis atraviesan 2 main axis. Si se utiliza align-items, entonces cada fila será tratada como un mini flexbox. Sin embargo, si quiero mover LA FILA de posicion, entonces debo utilizar align-content, ya que se estaría tratando a los elementos de la cross axis como un grupo 
