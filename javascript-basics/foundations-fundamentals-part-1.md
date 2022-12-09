@@ -399,17 +399,167 @@ null + 1
 undefined + 1
 " \t \n" - 2
 ```
-"" + 1 + 0 => "10"
-"" - 1 + 0 => -1
-true + false => 1
-6 / "3" => 2
-"2" * "3" => 6
-4 + 5 + "px" => "9px"
-"$" + 4 + 5 => "$45"
-"4" - 2 => 2
+"" + 1 + 0 => "10" BIEN
+"" - 1 + 0 => -1 BIEN
+true + false => 1 BIEN
+6 / "3" => 2 BIEN
+"2" * "3" => 6 BIEN
+4 + 5 + "px" => "9px" BIEN
+"$" + 4 + 5 => "$45" BIEN
+"4" - 2 => 2 BIEN
+"4px" - 2 => Nan? BIEN
+"  -9  " + 5 => "  -9   5" BIEN
+"  -9  " - 5 => -14 BIEN
+null + 1 => 1 BIEN
+undefined + 1 => Nan BIEN
+" \t \n" - 2 => Nan
+
+
+### 1.4 Fix the addition
+
+```
+let a = prompt("First number?", 1);
+let b = prompt("Second number?", 2);
+
+alert(a + b); // 12
+```
+
+alert(+a + +b)
 
 
 
+# Diferencia entre let y var
 
 
+## Scope de let y var
+Let es solamente definida a nivel de bloque, si uno sale de este bloque deja de existir la variable. Var es definida fuera del bloque, o también llamado definido globalemnte.
 
+```
+if (true) {
+  var test = true; // use "var" instead of "let"
+}
+
+alert(test); // true, the variable lives after if
+```
+
+Sin embargo, si hacemos
+
+```
+if (true) {
+  let test = true; // use "var" instead of "let"
+}
+
+alert(test); // ReferenceError: test is not defined
+```
+
+Esto, porque let es solamente definida dentro de un bloque, pero deja de existir fuera de este.
+
+Esto también ocurre en for loops.
+
+## Var tolera redeclaraciones
+
+Con let NO se puede volver a declarar una variable
+
+```
+let user;
+let user; // SyntaxError: 'user' has already been declared
+```
+
+Sin embargo, con var si se puede, **pero es ignorado!**
+
+```
+var user = "Pete";
+
+var user = "John"; // this "var" does nothing (already declared)
+// ...it doesn't trigger an error
+
+alert(user); // John
+```
+
+## “var” variables can be declared below their use
+
+Esto significa que las declaraciones var son las primeras en ser procesadas dentro de una función, incluso si esta está al final de una función!
+
+```
+function sayHi() {
+  phrase = "Hello";
+
+  alert(phrase);
+
+  var phrase;
+}
+```
+
+Es lo mismo que decir
+
+```
+function sayHi() {
+  var phrase;
+
+  phrase = "Hello";
+
+  alert(phrase);
+
+  
+}
+```
+
+O incluso
+
+```
+function sayHi() {
+  phrase = "Hello";
+
+  if (false) {
+    var phrase;
+  }
+
+  alert(phrase);
+}
+```
+
+En el último código se ignora el bloque de código, ya que var ignora bloques de código, y aún así es declarada!. Por lo tanto, se lleva al inicio de la función
+
+Este es el famoso **"hoisting"**, ya que las declaraciones de variables se llevan al inicio del código. Notar que sólo la declaración es hoisteada (llevada al inicio) y no la asignacion!
+
+# Knowledge Check
+
+Name the three ways to declare a variable
+- var, let y const
+
+Which of the three variable declarations should you avoid and why?
+- var, ya que en ciertos casos genere un comportamiento inesperado
+
+What rules should you follow when naming variables?
+- Usar camelCase cuando se separen palabras. Al nombrar constantes, llamarlas con UPPER_CASE cuando se sabe a priori su valor antes de la ejecución del programa, y lowerCase cuando su valor es constante, pero calculado durante la ejecución del programa.
+
+
+What happens when you add numbers and strings together?
+- El número es convertido a string
+
+How does the Modulo (%), or Remainder, operator work?
+- Calcula el resto de una división entre dos operandos
+
+Explain the difference between == and ===.
+- == es un operador de igualdad que cambia el tipo de los datos para que sean iguales antes de evaluarlo. === es un operador de igualdad que NO cambia el tipo de los datos antes de evaluar la expresión
+
+When would you receive a NaN result?
+- Cuando al evaluar una expresión matemática se utilice un operando que no sea un número. Ej: '9px' - 4 => Nan, ya que 9px no es un número 
+
+How do you increment and decrement a number?
+- Con el operador ++/--
+
+Explain the difference between prefixing and postfixing increment/decrement operators.
+- Con el prefixing (++x) primero se aumenta el valor de la variable y luego se retorna. Por lo tanto, se retorna la variable aumentada. Con el postfixing (x++) primero se retorna el valor de la variable y luego se incrementa/decrementa. Por lo tanto, se retorna la variable previo a ser aumentada
+
+What is operator precedence and how is it handled in JS?
+- Es la prioridad que tiene cada operador en JS para ser ejecutado. Cada operador tiene un número asociado según su prioridad, y los que tienen mayor prioridad son ejecutados primero.
+
+How do you access developer tools and the console?
+- Right-click -> Inspeccionar
+
+How do you log information to the console?
+- console.log(info)
+
+What does unary plus operator do to string representations of integers? eg. +”10”
+- Los convierte a números. Es similar a Number("10")
