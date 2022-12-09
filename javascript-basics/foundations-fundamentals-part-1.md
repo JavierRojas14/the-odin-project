@@ -219,3 +219,197 @@ Con el operador unario + se convierte a número cualquier cosa. Es como
 un int(x).
 
 En JS es +"20" -> 20
+
+
+# "unary", "binary", "operand"
+
+Los **operand** son los operandos, que son a los que se les aplica el operador. Ej:
+
+```
+1 + 2 // Aquí hay 2 operandos y 1 operador 
+```
+
+Un operador es unario cuando solamente esta al lado de 1 operando. Ej:
+
+```
++1 -> Aqui hay 1 operando y es 1 operador unario
+```
+
+Un operador es binario cuando esta al lado de 2 operando. Ej:
+
+```
+1 + 2 // 2 operando y 1 operador binario
+```
+
+# String concatenation with binary +
+
+Si se suman 2 strings, entonces estos se concatenaran!
+
+```
+let s = "Hola" + "soy" + "Javier"; => "HolasoyJavier"
+alert(s); "HolasoyJavier"
+```
+
+Ahora, si se suman diversos tipos de datos, pero existe por lo menos 1 string, **entonces todos se convertiran a string**!
+
+```
+let s = "1" + 2;
+let z = 1 + "4";
+alert(s); // "12"
+alers(z); // "14"
+```
+
+Ahora, para operaciones más complejas:
+
+```
+alert(2 + 2 + '1'); => "41" y no "221". Esto, porque se ejecuta secuencialmente!
+```
+
+```
+alert('1' + 2 + 2); => "122" y no "14". Nuevamente, porque se ejecuta secuencialmente
+```
+
+Solamente el operador + funciona de esta forma, todos los demas funcionan solamente con números y convertiran el string a número.
+
+# Numeric conversion, unary +
+
+El unario + convierte todo tipo de dato a número (exceptuando los que ya son números).
+
+```
+let x = 2;
++x; // 2
+```
+
+```
+let x = True;
++x; // 1
+```
+
+Es como si se le aplicara Number(...) a cualquier tipo de dato, pero mucho más corto.
+
+
+Ahora, un caso mas complejo:
+
+```
+let apples = "2";
+let oranges = "3";
+
+alert(apples + oranges); // "23"
+alert(+apples + +oranges); // 5
+```
+
+# Operator precedence
+
+Hay un orden de ejecución para cada uno de los tipos de operadores! Los unarios son los que tienen más prioridad (por eso el ejercicio anterior funcionó)
+
+# Assignement o asignar un valor a una variable
+
+Solamente se puede hacer con una variable mutable (ej, una declarada con let). Es un operador, por lo que retorna un valor. Tiene muy baja prioridad en la precedencia de operadores, por lo que siempre se ejecutan las operaciones y luego la asignación!
+
+# Increment/Decrement
+
+Es un tipo especial de operador, y solamente funciona en variables (++5 no funciona). Incrementa/decrementa en 1 una variable!
+
+```
+let x = 5;
+x++; //
+alert(x); // 6
+```
+```
+let x = 6;
+x--;
+alert(x) // 5
+```
+
+Este tipo de operador se puede poner antes o despues de la variable. Sin embargo, ambos incrementan el valor de la variable. Pero la diferencia reside en el valor que retorna 
+
+```
+let a = 1;
+a++; // Retorna 1
+++a; // Retorna 3
+alert(a); // 3
+```
+
+Cuando se utiliza a++, primero se retorna el valor de la variable previo al incremento, y luego se incremente. Cuando se utiliza ++a, primero se suma 1 a la variable, y luego se retorna el valor incrementado!
+
+```
+let counter = 1;
+let a = ++counter; 
+let b = counter++;
+alert(a); 2
+alert(b); 2
+alert(counter); 3
+```
+
+# Comas
+
+Es el operador con la menor precedencia (incluso menos que =). Permite evaluar diversas expresiones matemáticas, pero solamente la última es retornada
+
+```
+let a = (1 + 2, 3 + 4);
+
+alert( a ); // 7 (the result of 3 + 4)
+```
+
+A veces se ocupan en cosas como estas:
+```
+// three operations in one line
+for (a = 1, b = 3, c = a * b; a < 10; a++) {
+ ...
+}
+```
+
+## Tasks
+
+### 1.1
+```
+let a = 1, b = 1;
+
+let c = ++a; // ?
+let d = b++; // ?
+```
+
+a y b serian 2, c seria 2 y d seria 1
+
+### 1.2
+```
+let a = 2;
+
+let x = 1 + (a *= 2);
+```
+
+a seria 4
+x seria 5
+
+### 1.3
+
+```
+"" + 1 + 0
+"" - 1 + 0
+true + false
+6 / "3"
+"2" * "3"
+4 + 5 + "px"
+"$" + 4 + 5
+"4" - 2
+"4px" - 2
+"  -9  " + 5
+"  -9  " - 5
+null + 1
+undefined + 1
+" \t \n" - 2
+```
+"" + 1 + 0 => "10"
+"" - 1 + 0 => -1
+true + false => 1
+6 / "3" => 2
+"2" * "3" => 6
+4 + 5 + "px" => "9px"
+"$" + 4 + 5 => "$45"
+"4" - 2 => 2
+
+
+
+
+
+
