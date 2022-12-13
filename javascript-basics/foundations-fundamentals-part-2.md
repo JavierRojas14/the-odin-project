@@ -389,3 +389,56 @@ if (decision) {
     alert('Canceled');
 }
 
+
+# Switch statements
+
+Si tengo una lista de opciones, es mejor a veces ocupar el switch operator
+
+switch (expression) {
+    case choice1:
+      //execute
+      break;
+    
+    case choice2:
+      //execute
+      break;
+    
+    default:
+      //execute
+}
+
+Por ejemplo:
+
+```
+const choice = document.querySelector('select');
+let content;
+
+switch (choice) {
+    case 'sunny':
+      content = 'go without a coat';
+      break;
+
+    case 'rainy':
+      content = 'go with a coat';
+      break;
+
+    case 'cloudy':
+      content = 'go with a coat';
+      break;
+
+    case 'snowing':
+      content = 'go with a coat';
+      break;
+}
+
+```
+
+# Operador ternario o conditional
+
+Tiene la sintaxis condition ? run this code : run this code instead;. Se utiliza cuando solamente hay dos opciones de cosas para correr.
+
+
+const greeting = isBirthday
+  ? 'Happy birthday Mrs. Smith — we hope you have a great day!'
+  : 'Good morning Mrs. Smith.';
+

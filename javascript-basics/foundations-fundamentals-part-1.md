@@ -563,3 +563,4 @@ How do you log information to the console?
 
 What does unary plus operator do to string representations of integers? eg. +”10”
 - Los convierte a números. Es similar a Number("10")
+
