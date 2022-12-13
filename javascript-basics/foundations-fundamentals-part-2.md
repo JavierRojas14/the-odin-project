@@ -264,7 +264,11 @@ En este caso, solamente la segunda linea muestra un print. Esto, porque el prime
 De forma similar a un OR, AND busca el primer valor falsy, para así poder retornar false. En caso que no encuentre ninguno, entonces retornará el último valor.
 
 
-Ocupar if para bloques if, y nunca short-circuits para realizar esta operación!
+Ocupar if para bloques if, y nunca short-circuits para realizar esta operación
+
+## NOT (!)
+
+Para utilizar el operador NOT se utiliza el signo de exclamación !. En primer lugar, convierte el operando en boolean, y luego retorna el boolean invertido.
 
 # Tasks
 ```
@@ -305,3 +309,83 @@ if (age >= 14 && age <= 90) {
     //execute
 }
 ```
+
+
+# Comparisons
+
+Recordar que al comparar dos valores, a través de los operadores ==, convierte los operandos a números.
+
+null y undefined sólo son iguales entre ellos con non-strict equality
+
+
+# Tasks
+
+Write an if condition to check that age is NOT between 14 and 90 inclusively.
+
+Create two variants: the first one using NOT !, the second one – without it.
+
+```
+let age;
+
+if !(age >= 14 && age <= 90) {
+    //execute
+}
+```
+
+```
+let age;
+
+if (age < 14 || age > 90) {
+    //execute
+}
+```
+
+Which of these alerts are going to execute?
+
+What will the results of the expressions be inside if(...)?
+
+if (-1 || 0) alert( 'first' );
+if (-1 && 0) alert( 'second' );
+if (null || -1 && 1) alert( 'third' );
+
+if(-1) Se ejecuta
+if(0) No se ejecuta
+if (1) Se ejecuta
+
+
+# Write the code which asks for a login with prompt.
+
+If the visitor enters "Admin", then prompt for a password, if the input is an empty line or Esc – show “Canceled”, if it’s another string – then show “I don’t know you”.
+
+The password is checked as follows:
+
+If it equals “TheMaster”, then show “Welcome!”,
+Another string – show “Wrong password”,
+For an empty string or cancelled input, show “Canceled”
+The schema:
+
+
+let decision = prompt()
+if (decision) {
+    if (decision == "Admin") {
+        password = prompt()
+        if (password) {
+            if (password == "TheMaster") {
+                alert('Welcome!');
+
+            } else {
+                alert('Wrong password');
+            }
+
+        } else {
+            alert('Canceled');
+        }
+
+    } else {
+        alert("I don't know you");
+    }
+
+} else {
+    alert('Canceled');
+}
+
