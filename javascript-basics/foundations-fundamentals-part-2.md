@@ -549,3 +549,77 @@ let message = (login == 'Employee') ? 'Hello':
               (login == 'Director') ? 'Greetings':
               (login == '') ? 'No login':
               ''; 
+
+
+# Knowledge Check
+
+What are the eight data types in JavaScript?
+Number, String, BigInt, Boolean, null, undefined, object, symbol
+
+Which data type is NOT primitive?
+Object, ya que es un conjunto de datos
+
+What is the relationship between null and undefined?
+null solamente es non-strict igual a undefined y vice versa. Null corresponde a zero, vacio, mientras que undefined es la ausencia de dfinición de un valor
+
+What is the difference between single, double, and backtick quotes for strings?
+Single y double son lo mismo, y las backtick permiten ingresar f strings
+
+What is the term for embedding variables/expressions in a string?
+No recuerdo
+
+Which type of quote lets you embed variables/expressions in a string?
+La backquote (`)
+
+How do you embed variables/expressions in a string?
+`${var}`
+
+How do you escape characters in a string?
+Con \
+
+What is the difference between the slice/substring/substr string methods?
+Slice pide un rango, pero es no inclusivo con el final del rango. Substring pide un rango, pero es inclusivo con el final del rango
+
+What are the three logical operators and what do they stand for?
+AND (&&), OR (||), NOT (!)
+
+What are the comparison operators?
+Son >, >=, <, <=, == y ===
+
+What are truthy and falsy values?
+Son valores que al ser convertidos a booleanos dan true (para truthy) o false (para falsy)
+
+What are the falsy values in JavaScript?
+0, null, undefined, "", NaN y false
+
+
+What are conditionals?
+Son bloques de codigos que se ejecutan solamente cuando se cumple/no se cumple una expresión 
+
+What is the syntax for an if/else conditional?
+if (condition) {
+  // execute
+} else {
+  // execute
+}
+
+
+What is the syntax for a switch statement?
+
+switch (variableForSwitch) {
+  case 1:
+    //execute
+    break;
+  
+  case 2:
+    //execute
+    break;
+
+  default;
+} 
+What is the syntax for a ternary operator?
+condition ? execute if true: execute if false
+
+
+What is nesting?
+Corresponde a la presencia de bloques de código dentro de otros bloques de código
