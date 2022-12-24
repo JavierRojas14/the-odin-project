@@ -113,4 +113,44 @@ getAge -> Si retorna la edad, pero también la imprime. Que la imprima es mala p
 createForm -> Sería malo si modifica el form
 checkPermission -> Sería malo si es que muestra en pantalla si se dio o no el permiso (solo debería retornar si es que se hay permiso o no)
 
-Es mejor crear varias funciones, que finalmente auto describen el código, ya que su nombre y funciones son descriptivas y faciles de leer. 
+Es mejor crear varias funciones, que finalmente auto describen el código, ya que su nombre y funciones son descriptivas y faciles de leer.
+
+# Repaso
+
+Bueno, como repaso hay que ver todo lo que se vió la clase pasada. Se vió todo lo relacionado a funciones en JavaScript. Pasando por los siguientes topicos:
+
+## Declaración
+
+function nameHere(parameters, separated, by, coma) {
+    do;
+}
+
+## Parametros y argumentos
+
+Los parametros son las variables definidas en la declaración de la función. Los argumentos son los valores que se dan a estas variables cuando se utiliza la función dentro del código.
+
+## Scope
+
+Corresponde al compartimiento que se genera dentro del bloque de la función. Todo lo definido dentro de este bloque solamente es accesible por el código dentro del bloque.
+
+## Arrow functions
+
+Son formas de definir lambda functions.
+
+(argumento) => {
+    doThis;
+}
+
+## Default parameters
+
+Son los valores por defecto de una función, en caso que el usuario deje sin definir algún argumento de la función.
+
+## Return
+
+Permite retornar un valor desde la función.
+
+# Buenas prácticas de funciones
+
+- Nombre: El nombre debe llevar 2 palabras, donde la primera es un verbo descriptivo de lo que hace la función, mientras la segunda es el sujeto de la función.
+- Cantidad de acciones: La función debe hacer exactamente 1 cosa, y que esa cosa este definida por su nombre
+- Ocupar solo variables locales: Es mejor siempre utilizar variables locales en vez de globales.
