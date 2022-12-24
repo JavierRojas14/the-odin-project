@@ -323,3 +323,7 @@ let func = (...args) => {
 ```
 let func = (...args) => something;
 ```
+
+# Call Stack
+
+Cuando se ejecutan funciones en JS, se crea un Call Stack, donde se van apilando las llamadas de funciones. Este stack se va rellenando cada vez que se ejecuta/entra a una funcion, y salen las funciones cuando se va a retornar un valor. Esta implementado como un LIFO (Last In, First Out), por lo que las ultimas funciones llamadas son las primeras en retornar.
