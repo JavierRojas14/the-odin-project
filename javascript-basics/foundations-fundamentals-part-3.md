@@ -327,3 +327,23 @@ let func = (...args) => something;
 # Call Stack
 
 Cuando se ejecutan funciones en JS, se crea un Call Stack, donde se van apilando las llamadas de funciones. Este stack se va rellenando cada vez que se ejecuta/entra a una funcion, y salen las funciones cuando se va a retornar un valor. Esta implementado como un LIFO (Last In, First Out), por lo que las ultimas funciones llamadas son las primeras en retornar.
+
+# Knowledge Check
+
+What are functions useful for?
+Para reutilizar codigo y modularizar
+
+How do you invoke a function?
+Utilizando su nombre, seguido de un parentesis (func())
+
+What are anonymous functions?
+Son funciones que no son asignadas a una variable para ser llamadas posteriormente
+
+What is function scope?
+Es el bloque de código que se genera cuando se declara una función. Las variables y cosas definidas dentro de este código solamente son accesibles desde ese bloque (y no desde fuera)
+
+What are return values?
+Son los valores entregados por las funciones al término de su ejecución
+
+What are arrow functions?
+Son formas de escribir function expressions de forma más concisa
