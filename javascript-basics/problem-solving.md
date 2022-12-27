@@ -40,6 +40,23 @@ El tercer paso es dividir, y es el paso más importante. En ves de resolver el p
 
 Resolver micro problemas es lo mejor!
 
+# For loops
+
+Aquí se vieron los for loops de JavaScripts, que tienen la siguiente sintaxis:
+
+```
+for (let i = 0; i < 10; i++) {
+    // do something
+}
+```
+
+O sea:
+
+```
+for (initialization; condition; do after execution) {
+    // code to do
+}
+```
 
 # Knowledge Check
 
