@@ -1,30 +1,20 @@
-function getText(i) {
-    let text;
-    switch (i) {
-        case 10:
-          text = 'Countdown 10';
-          break;
-  
-        case 0:
-          text = 'Blast Off!';
-          break;
-  
-        default:
-          text = i;
-          break;
+function isPrime(number) {
+  for (let i = number - 1; i > 1; i--) {
+    if (number % i === 0) {
+      return false;
     }
-    return text;
   }
-  
-  let output = document.querySelector('.output');
-  output.innerHTML = '';
-  
-  // let i = 10;
-  
-  for (let i = 10; i > -1; i--) {
-    const para = document.createElement('p');
-    let paragraphText = getText(i);
-  
-    para.textContent = paragraphText;
-    output.appendChild(para);
+  return true;
+}
+
+function getPrimeNumbers(range) {
+  const primeNumbers = [];
+  for (let i = 2; i <= range; i ++) {
+    if (isPrime(i)) {
+      primeNumbers.push(i);
+    }
   }
+  return primeNumbers;
+}
+
+console.log(getPrimeNumbers(10));
