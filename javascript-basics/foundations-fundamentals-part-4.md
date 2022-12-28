@@ -133,4 +133,62 @@ console.log(myBoys.concat(myGirls));
 
 En JS no existe la notación array[1:3], por lo tanto se utiliza el método .slice(start, end). Los indices si funcionan como los indices de Python (inclusivo en start, exclusivo en end)
 
+# Loops
 
+Los loops en JS los vimos en una clase anterior, pero la sintaxis general es:
+
+for (initialize; condition; execute after block of code) {
+    // code
+}
+
+Ahora, para iterar un array se puede hacer lo siguiente:
+
+```
+const lista = ['Perro', 'Gato', 'Camello'];
+
+for (let i = 0; i < lista.length; i++) {
+    //codigo
+}
+```
+
+Sin embargo, hay una forma de iterar un iterador al estilo python (for elemento in lista:). Esto se hace con for... of:
+
+```
+const lista = ['Perro', 'Gato', 'Camello'];
+
+for (const elemento of lista) {
+    console.log(elemento);
+}
+```
+
+Y es mucho más recomendable la última forma, ya que se evitan bugs (inicializar i en 1, que la condición sea i <= lista.length).
+
+## Break
+
+Funciona igual que en Python, permite salir del loop prematuramente
+
+## Continue
+
+Funciona igual que en Python, permite seguir la iteración cuando se llega a este.
+
+# While
+
+Funciona igual que en Python, solamente la sintaxis es distinta:
+
+initializer
+while (condition) {
+    // code
+
+    final-expression
+}
+
+# do-while
+
+Es otra forma de escribir un loop while:
+
+initializer
+do {
+    //code
+} while (condition)
+
+En este caso, el código si o si se ejecutará por lo menos 1 vez. Ya que primero se entra al do, y luego se chequea la condición (y si la condición es falsa, entonces no se volverá al do, pero ya se habrá ejecutado 1 vez el código).
