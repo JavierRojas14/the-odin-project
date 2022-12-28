@@ -1,6 +1,3 @@
-let admin;
-let name;
+const newArray = ['Pepe', 'Carlos', 'John', 'lausodqwd'];
 
-name = "John";
-admin = name;
-alert(admin);
+console.log(newArray.slice(1, 3));
