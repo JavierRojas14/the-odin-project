@@ -192,3 +192,9 @@ do {
 } while (condition)
 
 En este caso, el código si o si se ejecutará por lo menos 1 vez. Ya que primero se entra al do, y luego se chequea la condición (y si la condición es falsa, entonces no se volverá al do, pero ya se habrá ejecutado 1 vez el código).
+
+# Test driven development
+
+Es una forma de producir código/funciones, en donde se ponen los inputs y los outputs esperados de
+una función. Si se utiliza la función, entonces debería obtenerse el output y se vería que la función
+está lista!
