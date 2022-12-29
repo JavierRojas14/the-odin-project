@@ -143,7 +143,7 @@ for (initialize; condition; execute after block of code) {
 
 Ahora, para iterar un array se puede hacer lo siguiente:
 
-```
+```javascript
 const lista = ['Perro', 'Gato', 'Camello'];
 
 for (let i = 0; i < lista.length; i++) {
@@ -153,7 +153,7 @@ for (let i = 0; i < lista.length; i++) {
 
 Sin embargo, hay una forma de iterar un iterador al estilo python (for elemento in lista:). Esto se hace con for... of:
 
-```
+```javascript
 const lista = ['Perro', 'Gato', 'Camello'];
 
 for (const elemento of lista) {
@@ -175,21 +175,25 @@ Funciona igual que en Python, permite seguir la iteración cuando se llega a est
 
 Funciona igual que en Python, solamente la sintaxis es distinta:
 
+```javascript
 initializer
 while (condition) {
     // code
 
     final-expression
 }
+```
 
 # do-while
 
 Es otra forma de escribir un loop while:
 
+```javascript
 initializer
 do {
     //code
 } while (condition)
+```
 
 En este caso, el código si o si se ejecutará por lo menos 1 vez. Ya que primero se entra al do, y luego se chequea la condición (y si la condición es falsa, entonces no se volverá al do, pero ya se habrá ejecutado 1 vez el código).
 
@@ -198,3 +202,49 @@ En este caso, el código si o si se ejecutará por lo menos 1 vez. Ya que primer
 Es una forma de producir código/funciones, en donde se ponen los inputs y los outputs esperados de
 una función. Si se utiliza la función, entonces debería obtenerse el output y se vería que la función
 está lista!
+
+# Spread operator y *args
+
+Es el operador ..., y es igual que el operador * en python. Sirve para definir los argumentos variables en una función (*args). O sea.
+
+```javascript
+function (...args) {
+    for (const elemento of args) {
+        console.log(elemento);
+    }
+}
+```
+
+Retorna todos los elementos brindados a la función
+
+# Knowledge Check
+
+What is an array?
+Es un tipo de dato que permite almacenar diversos valores dentro de si mismo 
+
+What are arrays useful for?
+Permiten guardar harta información dentro de si, sin la necesidad de crear una variable por cada información
+
+How do you access an array element?
+Con la notación array[index]
+
+How do you change an array element?
+Con la notación array[index] = newElement;
+
+What are some useful array properties?
+array.length
+
+What are some useful array methods?
+array.push(), .pop(), .concatenate(), .shift()
+
+What are loops useful for?
+Permiten repetir muchas tareas rápidamente
+
+What is the break statement?
+Es una expresión que indica la salida de un bloque loop
+
+What is the continue statement?
+Es una expresión que indica seguir con la siguiente iteración de un loop
+
+What is the advantage of writing automated tests?
+Permite ver cuando una función está completamente lista!
