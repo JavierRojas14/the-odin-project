@@ -205,3 +205,92 @@ Si se quiere agregar el mismoi listener a un grupo de elementos, entonces se deb
 - dblclick
 - keydown
 - keyup
+
+# Event Capture, Propagation and Bubbling
+
+**Bubbling:** es un fenomeno que ocurre cuando se selecciona/triggerea un evento de un elemento HTML que esta anidado dentro de otros. Por ejemplo:
+
+```html
+<div class='one'>
+  <div class='two'>
+    <div class='three'>
+      <div class='four'></div>
+    </div>
+  </div>
+</div>
+```
+
+Si se asocia a cada elemento un evento, pero se clickea solamente el cuarto, entonces los 4 elementos anidados van a triggerear el evento. Esto, porque el elemento four esta anidado dentro de otros 4 divs. Por lo tanto, es un problema bastante grande que se debe tener en cuenta.
+
+**Event Capture:** Es la captura de eventos de forma up-to-down cuando se clickea un elemento anidado. En el caso anterior, la captura de eventos seria recolectar los eventos de los elementos one, two, three y four.
+
+Ahora, de forma default se genera un call stack cada vez que se captura un evento. O sea, cuando se clickea el elemento four, se genera una call stack de la siguiente manera:
+
+one > two > three > four. 
+
+Primero se ejecuta four, luego three, luego two y luego one. Por lo tanto, primero se capturan los eventos, se genera el call stack, y finalmente se ejecutan las funciones de forma LIFO.
+
+**Stop Propagation:** Ahora, si a la funcion del elemento four le llamamos al evento lo siguiente:
+
+```javascript
+function logText(e) {
+  console.log(this.classList.value);
+  e.stopPropagation();
+}
+```
+
+Entonces la ejecucion del call stack solamente se ejecutara hasta el elemento four, ya que se interrumpe todo el call stack y se deja vacio!. Por lo tanto, asi se evita el fenomeno del bubbling y la llamada de todas las funciones que estan anidadas!
+
+
+# Knowgledge Check
+
+What is the DOM?
+DOM o Domain Object Model es la representacion de los elementos de un HTML en forma de nodo. En esta representacion se puede ver la relacion entre nodos (padre-hijo, hermanos), y cada nodo tiene metodo y propiedades que permiten manipularlos.
+
+How do you target the nodes you want to work with?
+Con document.querySelector(nodeSelection)
+
+How do you create an element in the DOM?
+document.createElement(element)
+
+How do you add an element to the DOM?
+Con parentNode.appendChild(nodo) o parentNode.insertBefore(newNode, referenceNode)
+
+How do you remove an element from the DOM?
+Con parentNode.removeChild(nodo)
+
+How can you alter an element in the DOM?
+Con node.classList.add()/remove()/toggle(), node.styles.property, node.setAttribute(),
+entre otros
+
+When adding text to a DOM element, should you use textContent or innerHTML? Why?
+Es mejor utilizar textContent, ya que seria crear un nuevo elemento y editar su texto, lo que es mucho mas ordenado
+
+Where should you include your JavaScript tag in your HTML file when working with DOM nodes?
+Al final de toda la ejecucion del HTML. O sea, al final del cuerpo, dentro de un script tag
+
+How do “events” and “listeners” work?
+Los listeners escuchan si es que ocurre un evento dentro de una pagina. Si es que ocurre el evento, entonces se ejectura una funcion definida por el usuario
+
+What are three ways to use events in your code?
+1. Agregando un atributo al elemento HTML, indicando el evento que va a triggerearlo y la funcion que se va a lanzar
+2. Setteando el evento triggeador al elemento dentro de un script de JS
+3. Creando eventListeners para el elemento que queremos que sea triggereado
+
+Why are event listeners the preferred way to handle events?
+Porque permiten settear diversos eventos para un mismo elemento (un mismo elemento puede ser triggereado por un click, por un tecleo, etc)
+
+What are the benefits of using named functions in your listeners?
+Permiten hacer el codigo mucho mas legible
+
+How do you attach listeners to groups of nodes?
+Primero, seleccionando el grupo de nodos que queremos linkearlos a un listener con document.querySelectorAll(seleecion). Luego, iterar por la NodeList a traves de un loop (ejemplo: Con un forEach()) y settear el eventListener para cada uno.
+
+What is the difference between the return values of querySelector and querySelectorAll?
+querySelector retorna 1 objeto Nodo, mientras que querySelectorAll retorna una NodeList
+
+What does a “nodelist” contain?
+Un conjunto de nodos
+
+Explain the difference between “capture” and “bubbling”.
+La captura de eventos se hace desde arriba hacia abajo en la jerarquia de elementos, mientras que el bubbling (o call stack) se hace desde abajo hacia arriba en la jerarquia de elementos.
