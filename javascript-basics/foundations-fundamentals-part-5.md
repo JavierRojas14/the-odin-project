@@ -89,3 +89,18 @@ function multiplyNumeric(obj) {
     }
 }
 ```
+
+# Knowledge Check
+
+What is the difference between objects and arrays?
+Los objetos son un tipo de datos que puede albergar diversos tipos de datos en un unico elemento
+
+How do you access object properties?
+Con la notacion de punto (object.property) o de corchetes (object[property])
+
+What is Array.prototype.map() useful for?
+Para aplicar una funcion a todos los elementos de una lista
+
+What is Array.prototype.reduce() useful for?
+Para obtener un unico valor desde una lista. Este se obtiene luego de haber aplicado una funcion
+a los elementos del array.
